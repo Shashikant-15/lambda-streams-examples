@@ -1,5 +1,8 @@
 package com.knoldus.java.lambdaStream;
 
+/**
+ * created Employee class having diff entities like age,name,sureName
+ */
 public class Employee {
     private int age;
     private String name,sureName;

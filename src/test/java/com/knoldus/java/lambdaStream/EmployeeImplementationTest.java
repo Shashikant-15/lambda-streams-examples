@@ -24,7 +24,7 @@ class EmployeeImplementationTest {
        employeeList.add(new Employee(25, "anshita", "mathur"));
 
    }
- @Test
+    @Test
     public void testSortByName(){
         List<Employee> employees = EmployeeImplementation.sortByName(employeeList);
         Assert.assertEquals("Employee{age=25, name='AASHIF', sureName='ALI'}",employees.get(0).toString());

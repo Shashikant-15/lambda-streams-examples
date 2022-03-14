@@ -3,6 +3,8 @@ package com.knoldus.java.lambdaStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.knoldus.java.lambdaStream.EmployeeImplementation.employeeWhoseAgeAreMoreThan_23_Yrs;
 import static com.knoldus.java.lambdaStream.EmployeeImplementation.filterAllEmployeeDataStartingNameWith_A;
@@ -13,6 +15,9 @@ import static com.knoldus.java.lambdaStream.EmployeeImplementation.printingEmplo
 import static com.knoldus.java.lambdaStream.EmployeeImplementation.sortByName;
 
 public class EmployeeApplication {
+
+    // LOGGER added
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeApplication.class);
     /**
      * main method called
      * @param args arguments
@@ -32,48 +37,48 @@ public class EmployeeApplication {
         employeeList.add(new Employee(24, "SHIVAM", "ROY"));
         employeeList.add(new Employee(25, "anshita", "mathur"));
 
-        System.out.println("===========================================");
-        System.out.println("a) After Sorting the employee data by Name:");
-        sortByName(employeeList).forEach((e) -> System.out.println(e));
+        LOGGER.info("===========================================");
+        LOGGER.info("a) After Sorting the employee data by Name:");
+        sortByName(employeeList).forEach((e) -> LOGGER.info(String.valueOf(e)));
 
         // filter all name starting with 'A'
-        System.out.println("===========================================");
-        System.out.println("b) filter all employee data starting name with 'A'");
-        System.out.println("\n");
-        filterAllEmployeeDataStartingNameWith_A(employeeList).forEach((e) -> System.out.println(e));
+        LOGGER.info("===========================================");
+        LOGGER.info("b) filter all employee data starting name with 'A'");
+        LOGGER.info("\n");
+        filterAllEmployeeDataStartingNameWith_A(employeeList).forEach((e) -> LOGGER.info(String.valueOf(e)));
 
 
-        System.out.println("===========================================");
-        System.out.println("c) filter all the employee names starting with P");
-        filterAllEmployeeDataStartingNameWith_P(employeeList).forEach(name -> System.out.println(name));
-        System.out.println("");
+        LOGGER.info("===========================================");
+        LOGGER.info("c) filter all the employee names starting with P");
+        filterAllEmployeeDataStartingNameWith_P(employeeList).forEach(name -> LOGGER.info(String.valueOf(name)));
+        LOGGER.info("");
 
-        System.out.println("===========================================");
-        System.out.println(" d) printing all employee names in upper case");
+        LOGGER.info("===========================================");
+        LOGGER.info(" d) printing all employee names in upper case");
         printingAllEmployeeNamesInUpperCase(employeeList);
-        System.out.println("");
+        LOGGER.info("");
 
-        System.out.println("===========================================");
-        System.out.println("e) filter all the employee names ending with A in upper case\n");
+        LOGGER.info("===========================================");
+        LOGGER.info("e) filter all the employee names ending with A in upper case\n");
         filterAllEmployeeNamesEndingWith_A_inUpperCase(employeeList);
-        System.out.println("");
+        LOGGER.info("");
 
-        System.out.println("===========================================");
-        System.out.println("f) count the employee names ending with 'A' Letter");
-        System.out.println(employeeList.stream().filter(name -> name.getName().endsWith("A")).count());
-        System.out.println("");
+        LOGGER.info("===========================================");
+        LOGGER.info("f) count the employee names ending with 'A' Letter");
+        LOGGER.info(String.valueOf(employeeList.stream().filter(name -> name.getName().endsWith("A")).count()));
+        LOGGER.info("");
 
-        System.out.println("===========================================");
-        System.out.println("g) printing the employee names starting with D");
+        LOGGER.info("===========================================");
+        LOGGER.info("g) printing the employee names starting with D");
         printingEmployeeNamesStartingWith_D_Letter(employeeList);
-        System.out.println("");
+        LOGGER.info("");
 
-        System.out.println("===========================================");
+        LOGGER.info("===========================================");
         List<Employee> employeeListHavingAgeMoreThan23 = employeeList.stream().filter(e -> (e).getAge() > 23).collect(Collectors.toList());
-        System.out.println("h) Employee whose age more than 23 yrs are");
+        LOGGER.info("h) Employee whose age more than 23 yrs are");
         employeeWhoseAgeAreMoreThan_23_Yrs(employeeListHavingAgeMoreThan23);
 
-        System.out.println("===========================================");
+        LOGGER.info("===========================================");
 
     }
 }

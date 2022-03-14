@@ -2,14 +2,20 @@ package com.knoldus.java.lambdaStream;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EmployeeImplementation {
+
+    // LOGGER added
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeImplementation.class);
     /**
      * sortByName(List<Employee> employeeList) using following methods from Stream API.
      * sort(): sort the list of all employees name i.e Ascending order
      * @param employeeList list of employees
      * @return true if all the employee sorted by their name otherwise false.
      */
+
     public static List<Employee> sortByName(List<Employee> employeeList){
 
         employeeList.sort((Employee e1, Employee e2) -> e1.getSureName().compareTo(e2.getSureName()));
@@ -47,7 +53,7 @@ public class EmployeeImplementation {
      */
     public static  List<Employee>printingAllEmployeeNamesInUpperCase (List<Employee> employeeList){
 
-        employeeList.stream().forEach(name -> System.out.println(name.toString().toUpperCase()));
+        employeeList.stream().forEach(name -> LOGGER.info(name.toString().toUpperCase()));
         return employeeList;
     }
      /**
@@ -58,7 +64,7 @@ public class EmployeeImplementation {
       * @return true if filter all Employee Names Ending With 'A' in Upper Case otherwise false.
       */
     public static  List<Employee>filterAllEmployeeNamesEndingWith_A_inUpperCase (List<Employee> employeeList){
-        employeeList.stream().filter(name -> name.getName().endsWith("A")).forEach(name -> System.out.println(name.toString().toUpperCase()));
+        employeeList.stream().filter(name -> name.getName().endsWith("A")).forEach(name -> LOGGER.info(name.toString().toUpperCase()));
         return employeeList;
     }
 
@@ -71,7 +77,7 @@ public class EmployeeImplementation {
       */
     public static List<Employee> countEmployeeWhoseNamesEndingWith_A_Letter(List<Employee> employeeList){
 
-        System.out.println(employeeList.stream().filter(name -> name.getName().endsWith("A")).count());
+        LOGGER.info(String.valueOf(employeeList.stream().filter(name -> name.getName().endsWith("A")).count()));
         return employeeList;
     }
      /**
@@ -82,7 +88,7 @@ public class EmployeeImplementation {
       * @return true if printing all Employee Names Starting With Letter 'D' otherwise false.
       */
     public static  List<Employee>printingEmployeeNamesStartingWith_D_Letter(List<Employee> employeeList) {
-        employeeList.stream().filter(name -> name.getName().startsWith("D")).forEach(name -> System.out.println(name));
+        employeeList.stream().filter(name -> name.getName().startsWith("D")).forEach(name -> LOGGER.info(String.valueOf(name)));
         return employeeList;
     }
      /**
@@ -92,7 +98,7 @@ public class EmployeeImplementation {
       */
     public static  List<Employee>employeeWhoseAgeAreMoreThan_23_Yrs (List<Employee> employeeList) {
         for (Employee employee : employeeList) {
-            System.out.println("Name is = " + employee.getName() + " age is = " + employee.getAge());
+            LOGGER.info("Name is = " + employee.getName() + " age is = " + employee.getAge());
         }
         return employeeList;
     }

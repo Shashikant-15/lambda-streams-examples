@@ -1,26 +1,16 @@
 package com.knoldus.java.lambdaStream;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class EmployeeImplementation {
+public class EmployeeProcessingWithStreams {
 
     // LOGGER added
-    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeImplementation.class);
-    /**
-     * sortByName(List<Employee> employeeList) using following methods from Stream API.
-     * sort(): sort the list of all employees name i.e Ascending order
-     * @param employeeList list of employees
-     * @return true if all the employee sorted by their name otherwise false.
-     */
-
-    public static List<Employee> sortByName(List<Employee> employeeList){
-
-        employeeList.sort((Employee e1, Employee e2) -> e1.getSureName().compareTo(e2.getSureName()));
-        return employeeList;
-    }
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeProcessingWithStreams.class);
+   
     /**
      *
      * filterAllEmployeeDataStartingNameWith_A (List<Employee> employeeList) using following methods from Stream API
@@ -101,5 +91,26 @@ public class EmployeeImplementation {
             LOGGER.info("Name is = " + employee.getName() + " age is = " + employee.getAge());
         }
         return employeeList;
+    }
+
+    /**
+     * employeesSalaryMoreThan5000(List<Employee> employeeList) using following methods from Stream API
+     * find employees whose salaries are above 5000
+     */
+    public static List<Employee> employeesSalaryMoreThan5000(List<Employee> employeeList) {
+        for (Employee employee : employeeList){
+            LOGGER.info("Employee Name: " + employee.getName() + " Salary is = " + employee.getSalary());
+        }
+        return employeeList;
+    }
+    /**
+     * employeeWhoseAgeAreMoreThan_23_Yrs (List<Employee> employeeList) using following methods from Stream API
+     * stream(): creates sequential Stream
+     * sorted list by  age in Ascending order
+     */
+    public static List<Employee> sortedListByTheirAge (List <Employee> employeeList){
+           return employeeList.stream().sorted(Comparator.comparingInt(Employee::getAge))
+            .collect(Collectors.toList());
+
     }
 }

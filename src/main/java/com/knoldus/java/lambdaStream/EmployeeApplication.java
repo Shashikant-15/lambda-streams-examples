@@ -6,19 +6,24 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.knoldus.java.lambdaStream.EmployeeImplementation.employeeWhoseAgeAreMoreThan_23_Yrs;
-import static com.knoldus.java.lambdaStream.EmployeeImplementation.filterAllEmployeeDataStartingNameWith_A;
-import static com.knoldus.java.lambdaStream.EmployeeImplementation.filterAllEmployeeDataStartingNameWith_P;
-import static com.knoldus.java.lambdaStream.EmployeeImplementation.filterAllEmployeeNamesEndingWith_A_inUpperCase;
-import static com.knoldus.java.lambdaStream.EmployeeImplementation.printingAllEmployeeNamesInUpperCase;
-import static com.knoldus.java.lambdaStream.EmployeeImplementation.printingEmployeeNamesStartingWith_D_Letter;
-import static com.knoldus.java.lambdaStream.EmployeeImplementation.sortByName;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithLambda.sortInAscendingOrder;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithLambda.sortInDescendingOrder;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithLambda.sortInLambdaWay;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.employeeWhoseAgeAreMoreThan_23_Yrs;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.employeesSalaryMoreThan5000;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.filterAllEmployeeDataStartingNameWith_A;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.filterAllEmployeeDataStartingNameWith_P;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.filterAllEmployeeNamesEndingWith_A_inUpperCase;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.printingAllEmployeeNamesInUpperCase;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.printingEmployeeNamesStartingWith_D_Letter;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithLambda.sortByName;
+import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.sortedListByTheirAge;
 
 public class EmployeeApplication {
 
-    // LOGGER added
+    // LOGGER created
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeApplication.class);
-    /**
+     /**
      * main method called
      * @param args arguments
      */
@@ -27,15 +32,16 @@ public class EmployeeApplication {
         ArrayList<Employee> employeeList = new ArrayList<>();
 
         //adding data to the array list
-        employeeList.add(new Employee(23, "KRISHNA", "VASUDEV"));
-        employeeList.add(new Employee(24, "PRAKHAR", "RASHTOGI"));
-        employeeList.add(new Employee(22, "DEEPAK", "KUMAR"));
-        employeeList.add(new Employee(25, "AASHIF", "ALI"));
-        employeeList.add(new Employee(21, "vaishali", "yaadav"));
-        employeeList.add(new Employee(22, "PRATIBHA", "YADAV"));
-        employeeList.add(new Employee(23, "ARUNESH", "JAIN"));
-        employeeList.add(new Employee(24, "SHIVAM", "ROY"));
-        employeeList.add(new Employee(25, "anshita", "mathur"));
+        employeeList.add(new Employee(23, "KRISHNA", "VASUDEV",50000));
+        employeeList.add(new Employee(24, "PRAKHAR", "RASHTOGI",45000));
+        employeeList.add(new Employee(22, "DEEPAK", "KUMAR",35000));
+        employeeList.add(new Employee(25, "AASHIF", "ALI",55000));
+        employeeList.add(new Employee(21, "vaishali", "yaadav",51000));
+        employeeList.add(new Employee(22, "PRATIBHA", "YADAV",43500));
+        employeeList.add(new Employee(23, "ARUNESH", "JAIN",42000));
+        employeeList.add(new Employee(24, "SHIVAM", "ROY",38500));
+        employeeList.add(new Employee(25, "anshita", "mathur",41000));
+
 
         LOGGER.info("===========================================");
         LOGGER.info("a) After Sorting the employee data by Name:");
@@ -79,6 +85,28 @@ public class EmployeeApplication {
         employeeWhoseAgeAreMoreThan_23_Yrs(employeeListHavingAgeMoreThan23);
 
         LOGGER.info("===========================================");
+        LOGGER.info("i) get Employees Data having Salary More Than 50000 rupees");
+        List<Employee> getSalaryMoreThan5000 = employeeList.stream().filter(e -> (e).getSalary() > 50000).collect(Collectors.toList());
+        employeesSalaryMoreThan5000(getSalaryMoreThan5000);
+        LOGGER.info("");
+
+        LOGGER.info("j) sort employees List By Their Age");
+        sortedListByTheirAge(employeeList).forEach(name -> LOGGER.info(String.valueOf(name)));
+        LOGGER.info("");
+
+        LOGGER.info("===========================================");
+        LOGGER.info("k) sort Employees name In Ascending order => ");
+        sortInAscendingOrder(employeeList).forEach((employee -> LOGGER.info(String.valueOf(employee))));
+        LOGGER.info("");
+
+        LOGGER.info("===========================================");
+        LOGGER.info("L) sort Employees name In Descending order => " );
+        sortInDescendingOrder(employeeList).forEach((e -> LOGGER.info(String.valueOf(e))));
+        LOGGER.info("");
+
+        LOGGER.info("===========================================");
+        LOGGER.info("M) After Sorting the employee data by salary:");
+        sortInLambdaWay(employeeList).forEach((e) -> LOGGER.info(String.valueOf(e.getSalary())));
 
     }
 }

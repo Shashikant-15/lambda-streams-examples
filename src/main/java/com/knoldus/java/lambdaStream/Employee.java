@@ -1,14 +1,28 @@
 package com.knoldus.java.lambdaStream;
 
 /**
- * created Employee class having diff entities like age,name,sureName
+ * Employee class points the employee having
+ * different entities like age,name,sureName
+ *
+ * @author Shashikant
+ * @version 1.0
+ * @see Employee
  */
 public class Employee {
     private int age;
-    private String name,sureName;
+    private String name;
+    private String sureName;
     private double salary;
 
-    public Employee(int age, String name, String sureName,double salary) {
+    /**
+     *  The method used for creating the biodata of an employee.
+     *
+     * @param age employee's age
+     * @param name employee's name
+     * @param sureName employee's surname
+     * @param salary employee's salary
+     */
+    public Employee(final int age, final String name, final String sureName, final double salary) {
         this.age = age;
         this.name = name;
         this.sureName = sureName;
@@ -24,7 +38,7 @@ public class Employee {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(final int age) {
         this.age = age;
     }
 
@@ -47,7 +61,11 @@ public class Employee {
         return salary;
     }
 
-    public void setSalary(Double salary) {
+    /**
+     *
+     * @param salary
+     */
+    public void setSalary(final Double salary) {
         this.salary = salary;
     }
 

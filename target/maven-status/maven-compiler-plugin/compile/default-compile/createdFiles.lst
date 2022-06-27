@@ -1,2 +1,4 @@
+com/knoldus/java/lambdaStream/EmployeeApplication.class
+com/knoldus/java/lambdaStream/EmployeeProcessingWithStreams.class
+com/knoldus/java/lambdaStream/EmployeeProcessingWithLambda.class
 com/knoldus/java/lambdaStream/Employee.class
-com/knoldus/java/lambdaStream/EmployeeImplementation.class

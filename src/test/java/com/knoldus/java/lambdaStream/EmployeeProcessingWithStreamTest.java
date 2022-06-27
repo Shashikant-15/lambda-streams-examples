@@ -2,11 +2,17 @@ package com.knoldus.java.lambdaStream;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+/**
+ * This class points the employee data
+ * Testing activity processing with Streams.
+ *
+ * @author Shashikant
+ * @version 1.0
+ * @see Employee
+ */
 class EmployeeProcessingWithStreamTest {
 
     ArrayList<Employee> employeeList = new ArrayList<>();

@@ -5,10 +5,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+/**
+ * This class points the employee data
+ * activity processing with Streams.
+ *
+ * @author Shashikant
+ * @version 1.0
+ * @see Employee
+ */
 public class EmployeeProcessingWithStreams {
 
-    // LOGGER added
+    /**
+     * LOGGER added
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeProcessingWithStreams.class);
    
     /**
@@ -31,8 +40,8 @@ public class EmployeeProcessingWithStreams {
      * @param employeeList list of employees
      * @return true if filter all Employee Data Starting Name With 'P' otherwise false.
      */
-    public static List<Employee> filterAllEmployeeDataStartingNameWith_P (List<Employee> employeeList){
-        List<Employee> list2=employeeList.stream().filter(name -> name.getName().startsWith("P")).collect(Collectors.toList());
+    public static List<Employee> filterAllEmployeeDataStartingNameWith_P (List<Employee> employeeList) {
+        List<Employee> list2 = employeeList.stream().filter(name -> name.getName().startsWith("P")).collect(Collectors.toList());
         return list2;
     }
     /**
@@ -41,7 +50,7 @@ public class EmployeeProcessingWithStreams {
      * @param employeeList list of employees
      * @return true if printing All Employee Names in Upper Case otherwise false.
      */
-    public static  List<Employee>printingAllEmployeeNamesInUpperCase (List<Employee> employeeList){
+    public static  List<Employee>printingAllEmployeeNamesInUpperCase(List<Employee> employeeList) {
 
         employeeList.stream().forEach(name -> LOGGER.info(name.toString().toUpperCase()));
         return employeeList;
@@ -65,7 +74,7 @@ public class EmployeeProcessingWithStreams {
       * @param employeeList list of employees
       * @return true if counted Employee Whose Names Ending With 'A' Letter otherwise false.
       */
-    public static List<Employee> countEmployeeWhoseNamesEndingWith_A_Letter(List<Employee> employeeList){
+    public static List<Employee> countEmployeeWhoseNamesEndingWith_A_Letter(List<Employee> employeeList) {
 
         LOGGER.info(String.valueOf(employeeList.stream().filter(name -> name.getName().endsWith("A")).count()));
         return employeeList;
@@ -96,6 +105,7 @@ public class EmployeeProcessingWithStreams {
     /**
      * employeesSalaryMoreThan5000(List<Employee> employeeList) using following methods from Stream API
      * find employees whose salaries are above 5000
+     * @return employee-list return
      */
     public static List<Employee> employeesSalaryMoreThan5000(List<Employee> employeeList) {
         for (Employee employee : employeeList){
@@ -107,8 +117,10 @@ public class EmployeeProcessingWithStreams {
      * employeeWhoseAgeAreMoreThan_23_Yrs (List<Employee> employeeList) using following methods from Stream API
      * stream(): creates sequential Stream
      * sorted list by  age in Ascending order
+     * @param employeeList as arguments
+     * @return return employee-List
      */
-    public static List<Employee> sortedListByTheirAge (List <Employee> employeeList){
+    public static List<Employee> sortedListByTheirAge (List<Employee> employeeList) {
            return employeeList.stream().sorted(Comparator.comparingInt(Employee::getAge))
             .collect(Collectors.toList());
 

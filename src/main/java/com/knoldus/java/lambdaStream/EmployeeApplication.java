@@ -18,29 +18,37 @@ import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.printi
 import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.printingEmployeeNamesStartingWith_D_Letter;
 import static com.knoldus.java.lambdaStream.EmployeeProcessingWithLambda.sortByName;
 import static com.knoldus.java.lambdaStream.EmployeeProcessingWithStreams.sortedListByTheirAge;
-
+/**
+ * EmployeeApplication class points the main Application
+ * from where whole application control.
+ *
+ * @author Shashikant
+ * @version 1.0
+ * @see Employee
+ */
 public class EmployeeApplication {
 
-    // LOGGER created
+   // logger added
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeApplication.class);
      /**
-     * main method called
-     * @param args arguments
+     * this is the main() method for the driver class
+      *
+     * @param args stores the incoming command line arguments for the program.
      */
     public static void main(String[] args) {
 
         ArrayList<Employee> employeeList = new ArrayList<>();
 
         //adding data to the array list
-        employeeList.add(new Employee(23, "KRISHNA", "VASUDEV",50000));
-        employeeList.add(new Employee(24, "PRAKHAR", "RASHTOGI",45000));
-        employeeList.add(new Employee(22, "DEEPAK", "KUMAR",35000));
-        employeeList.add(new Employee(25, "AASHIF", "ALI",55000));
-        employeeList.add(new Employee(21, "vaishali", "yaadav",51000));
-        employeeList.add(new Employee(22, "PRATIBHA", "YADAV",43500));
-        employeeList.add(new Employee(23, "ARUNESH", "JAIN",42000));
-        employeeList.add(new Employee(24, "SHIVAM", "ROY",38500));
-        employeeList.add(new Employee(25, "anshita", "mathur",41000));
+        employeeList.add(new Employee(23, "KRISHNA", "VASUDEV", 50000));
+        employeeList.add(new Employee(24, "PRAKHAR", "RASHTOGI", 45000));
+        employeeList.add(new Employee(22, "DEEPAK", "KUMAR", 35000));
+        employeeList.add(new Employee(25, "AASHIF", "ALI", 55000));
+        employeeList.add(new Employee(21, "vaishali", "yaadav", 51000));
+        employeeList.add(new Employee(22, "PRATIBHA", "YADAV", 43500));
+        employeeList.add(new Employee(23, "ARUNESH", "JAIN", 42000));
+        employeeList.add(new Employee(24, "SHIVAM", "ROY", 38500));
+        employeeList.add(new Employee(25, "anshita", "mathur", 41000));
 
 
         LOGGER.info("===========================================");
@@ -100,7 +108,7 @@ public class EmployeeApplication {
         LOGGER.info("");
 
         LOGGER.info("===========================================");
-        LOGGER.info("L) sort Employees name In Descending order => " );
+        LOGGER.info("L) sort Employees name In Descending order => ");
         sortInDescendingOrder(employeeList).forEach((e -> LOGGER.info(String.valueOf(e))));
         LOGGER.info("");
 

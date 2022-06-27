@@ -4,9 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+/**
+ * This class points the employee data
+ * activity processing with Lambda.
+ *
+ * @author Shashikant
+ * @version 1.0
+ * @see Employee
+ */
 public class EmployeeProcessingWithLambda {
-
+    /**
+     * object taken as arrayList of Employee
+     */
     static ArrayList<Employee> employeeList = new ArrayList<>();
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeProcessingWithLambda.class);
@@ -54,7 +63,6 @@ public class EmployeeProcessingWithLambda {
         employeeList.sort((Employee o1, Employee o2) -> (o1.getName().compareTo(o2.getName())));
         return employeeList;
     }
-
     // descending order
         public static List<Employee> sortInDescendingOrder(List <Employee> employeeList) {
             employeeList.sort((Employee e1, Employee e2) -> (e2.getName().compareTo(e1.getName())));

@@ -1,4 +1,4 @@
-# README
+``****````~~~~# README
 ## java-lambda-stream-exercise
 
 * Create Employee class having 4 fields name as age , name, sureName and salary. Generate constructor and getter/setter. Create EmployeeApplication Class, this class will create List objects of Employees.
@@ -36,4 +36,5 @@
 ### How to run the starter project?
 1. To build the service: Open the `java-lambda-stream-exercise`
 2. folder in terminal and run `mvn clean install`.
-3. To run the test cases: run `mvn clean test`.
+3. To run the test cases: run `mvn clean test`.****~~~~
+``````
